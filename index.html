@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/sections.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/os-type.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>KeyLogger App</title>
+    <script src="static/js/os-type.js"></script>
+</head>
+<body>
+    <header class="header">
+        <img src="static/images/logo.png" alt="KeyLogger Logo">
+        <h1>KeyLogger Manager</h1>
+        <p>Every Key Tells A Story</p>
+        <nav class="navbar" role="navigation">
+            <a href="#logs">Logs</a>
+            <a href="#history">History</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section id="os-type" class="section-container">
+                <div class="section-header">
+                    <div class="header-text">
+                        <h2>Select Operating System</h2>
+                        <p class="section-description">Currently only macOS is supported</p>
+                    </div>
+                </div>
+                <div class="os-type-container">
+                    <button class="os-type-item" data-os="macos">
+                        <i class="fab fa-apple"></i>
+                        <span>macOS</span>
+                    </button>
+                    <button class="os-type-item disabled" data-os="windows" disabled>
+                        <i class="fab fa-windows"></i>
+                        <span>Windows</span>
+                        <div class="coming-soon">Coming Soon</div>
+                    </button>
+                    <button class="os-type-item disabled" data-os="linux" disabled>
+                        <i class="fab fa-linux"></i>
+                        <span>Linux</span>
+                        <div class="coming-soon">Coming Soon</div>
+                    </button>
+                </div>
+            </section>  
+            <section id="devices" class="section-container" style="display: none;">
+                <div class="section-header">
+                    <div class="header-text">
+                        <h2>Connected Devices</h2>
+                        <p class="section-description">Manage your connected devices</p>
+                    </div>
+                </div>
+                <div class="devices-container">
+                    <button id="connect-device" class="control-btn">
+                        <i class="fas fa-plus"> Connect New Device </i>
+                    </button>
+                    <div id="device-list">
+                        <!-- Devices will be added here dynamically -->
+                    </div>
+                </div>
+            </section>
+        <section id="logs" class="section-container">
+            <h2>Logs</h2>
+            <div class="logs-container">
+                <pre id="keylogger-output">Loading...</pre>
+            </div>
+        </section>
+
+        <section id="history" class="section-container">
+            <h2>Logs History</h2>
+            <form id="history-form">
+                <input type="date" id="date-input" required>
+                <input type="time" id="time-input">
+                <button type="submit">Search</button>
+            </form>
+            <div id="history-output"></div>
+        </section>
+
+        <section id="about" class="section-container">
+            <div class="section-header">
+                <h2>About</h2>
+            </div>
+            <div class="about-container">
+                <h3>KeyLogger Manager</h3>
+                    <p>A secure and educational keylogging system designed to demonstrate:</p>
+                    <ul>
+                        <li>System-level input monitoring</li>
+                        <li>Data encryption and security</li>
+                        <li>Real-time data processing</li>
+                        <li>Secure data storage</li>
+                    </ul>
+                    
+                    <div class="team-section">
+                        <h3>Our Team</h3>
+                        <div class="team-member">
+                            <img src="static/images/motiwolff.png" alt="Team Member">
+                            <div class="member-info">
+                                <h4>Moti Wolff</h4>
+                                <p>Project Lead & Developer</p>
+                                <div class="social-links">
+                                    <a href="https://github.com/MotiWolff" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/mordechay-wolff-13b440180" target="_blank">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <img src="static/images/mendieisenbach.png" alt="Team Member">
+                            <div class="member-info">
+                                <h4>Mendi Eisenbach</h4>
+                                <p>Flow Designer & Developer</p>
+                                <div class="social-links">
+                                    <a href="https://github.com/mendieisenbach" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/in/mendieisenbach" target="_blank">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-container">
+            <div class="section-header">
+                <h2>Contact</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions or suggestions? Reach out to us!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>motiwolff@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <p>+1-516-274-9055</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/xjkgejbz" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="control-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 KeyLogger Manager. All rights reserved.</p>
+    </footer>
+
+    <script src="static/js/logs.js?v=1"></script>
+    <script src="static/js/history.js?v=1"></script>
+    <script src="static/js/devices.js"></script>
+</body>
+</html>

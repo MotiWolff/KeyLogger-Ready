@@ -1,0 +1,13 @@
+footer {
+    background-color: var(--kod-black);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 1px solid var(--kod-purple);
+}
+
+footer p {
+    color: var(--kod-light-gray);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

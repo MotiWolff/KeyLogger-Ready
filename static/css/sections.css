@@ -1,0 +1,605 @@
+#logs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--kod-turquoise);
+}
+
+/* Add this to create a container for buttons that keeps them in a row */
+#logs > .control-btn {
+    display: inline-block;
+    margin: 0 0.4rem 1rem 0.4rem;
+}
+
+.section-container {
+    padding: 2rem;
+    width: 75%;
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+#logs div {
+    border: 1px solid var(--kod-purple);
+    border-radius: 5px;
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logs-container {
+    width: 100%;
+    margin-top: 1rem;
+    border: 1px solid var(--kod-purple);
+    border-radius: 5px;
+    height: 75vh;
+    overflow: auto;
+    position: relative;
+}
+
+#keylogger-output {
+    width: 100%;
+    height: 100%;
+    background-color: var(--kod-black);
+    color: var(--kod-light-gray);
+    margin: 0;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+/* Custom scrollbar styling */
+.logs-container::-webkit-scrollbar,
+#keylogger-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.logs-container::-webkit-scrollbar-track,
+#keylogger-output::-webkit-scrollbar-track {
+    background: var(--kod-dark-gray);
+    border-radius: 4px;
+}
+
+.logs-container::-webkit-scrollbar-thumb,
+#keylogger-output::-webkit-scrollbar-thumb {
+    background: var(--kod-purple);
+    border-radius: 4px;
+    border: 2px solid var(--kod-dark-gray);
+}
+
+.logs-container::-webkit-scrollbar-thumb:hover,
+#keylogger-output::-webkit-scrollbar-thumb:hover {
+    background: var(--kod-turquoise);
+}
+
+/* Firefox scrollbar styling */
+.logs-container,
+#keylogger-output {
+    scrollbar-width: thin;
+    scrollbar-color: var(--kod-purple) var(--kod-dark-gray);
+}
+
+.control-panel {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-btn {
+    min-width: 120px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: transparent;
+    color: var(--kod-light-gray);
+    border: 2px solid var(--kod-purple);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific button colors */
+#start-logger {
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+#start-logger:hover {
+    background-color: #00ff00;
+    color: var(--kod-black);
+}
+
+#stop-logger {
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
+#stop-logger:hover {
+    background-color: #ff0000;
+    color: var(--kod-black);
+}
+
+#clear-logs {
+    border-color: var(--kod-turquoise);
+    color: var(--kod-turquoise);
+}
+
+#clear-logs:hover {
+    background-color: var(--kod-turquoise);
+    color: var(--kod-black);
+}
+
+/* Keep the hover effects and specific button styles */
+.control-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(123, 104, 238, 0.2);
+}
+
+@media (max-width: 768px) {
+    .control-btn {
+        min-width: 100px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        margin: 0 0.2rem;
+    }
+}
+
+#connect-device i {
+    color: var(--kod-turquoise);
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+/* History Section */
+#history {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.history-container {
+    width: 100%;
+    margin-top: 1rem;
+    border: 1px solid var(--kod-purple);
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: var(--kod-black);
+    display: flex;
+    flex-direction: column;
+    height: 70;
+}
+
+.history-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.history-input {
+    background-color: transparent;
+    border: 2px solid var(--kod-purple);
+    border-radius: 4px;
+    color: var(--kod-light-gray);
+    padding: 6px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.history-input:focus {
+    outline: none;
+    border-color: var(--kod-turquoise);
+}
+
+.history-list {
+    width: 80;
+    overflow-y: auto;
+    border: 1px solid var(--kod-purple);
+    border-radius: 5px;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.history-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.history-entry {
+    background-color: rgba(123, 104, 238, 0.05);
+    border-left: 3px solid var(--kod-purple);
+    padding: 1.2rem;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-entry:hover {
+    background-color: rgba(123, 104, 238, 0.2);
+    transform: translateX(4px);
+}
+
+.entry-timestamp {
+    font-size: 0.9rem;
+    color: var(--kod-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.entry-content {
+    white-space: pre-wrap;
+    color: var(--kod-white);
+    font-family: var(--font-mono);
+}
+
+/* Scrollbar styling */
+.history-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: var(--kod-black);
+    border-radius: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: var(--kod-purple);
+    border-radius: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+    background: var(--kod-turquoise);
+}
+
+/* Date and time input styling */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Add to existing sections.css */
+.devices-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.device-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--kod-black);
+    border: 2px solid var(--kod-purple);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.device-item.selected {
+    border-color: var(--kod-turquoise);
+    background: rgba(64, 224, 208, 0.1);
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.device-info label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.device-selector {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--kod-turquoise);
+}
+
+.device-name {
+    font-weight: 500;
+    color: var(--kod-light-gray);
+}
+
+.device-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.device-status.connected {
+    background: var(--kod-turquoise);
+    color: var(--kod-black);
+}
+
+.device-status.logging {
+    background: #ff4444;
+    color: white;
+}
+
+.device-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Improve button visibility */
+.device-controls .control-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.device-controls .control-btn i {
+    font-size: 0.9rem;
+}
+
+/* History notifications */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    color: white;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+    background-color: var(--kod-turquoise);
+}
+
+.notification.error {
+    background-color: #ff4444;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Copy button */
+.copy-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px;
+    min-width: unset;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.history-entry {
+    position: relative;
+}
+
+.history-entry:hover .copy-btn {
+    opacity: 1;
+}
+
+/* Error state */
+.history-entry.error {
+    border-left-color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+}
+
+
+.about-container {
+    background-color: var(--kod-black);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid var(--kod-purple);
+}
+
+.about-content {
+    color: var(--kod-light-gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content h3 {
+    color: var(--kod-turquoise);
+    margin-bottom: 1rem;
+}
+
+.about-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.about-content li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.about-content li::before {
+    content: "→";
+    color: var(--kod-purple);
+    position: absolute;
+    left: 0;
+}
+
+.team-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--kod-purple);
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(123, 104, 238, 0.1);
+    border-radius: 8px;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--kod-purple);
+}
+
+.member-info h4 {
+    color: var(--kod-turquoise);
+    margin: 0;
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: var(--kod-light-gray);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: var(--kod-turquoise);
+}
+
+/* Add this new rule */
+.social-links i {
+    text-decoration: none;
+    font-style: normal;
+}
+
+/* Add this to handle any potential text content */
+.social-links a::after {
+    content: none;
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background-color: var(--kod-black);
+    border-radius: 8px;
+    padding: 2rem;
+    border: 1px solid var(--kod-purple);
+}
+
+.contact-info {
+    color: var(--kod-light-gray);
+}
+
+.contact-info h3 {
+    color: var(--kod-turquoise);
+    margin-bottom: 1rem;
+}
+
+.contact-details {
+    margin-top: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.contact-item i {
+    color: var(--kod-purple);
+    font-size: 1.2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: transparent;
+    border: 2px solid var(--kod-purple);
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: var(--kod-light-gray);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--kod-turquoise);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        display: flex;
+    }
+}

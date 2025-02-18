@@ -1,0 +1,47 @@
+.header {
+    background-color: var(--kod-black);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 2rem auto;
+  }
+  
+  .header img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .header h1 {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .navbar a {
+    color: var(--kod-turquoise);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+  }
+  
+  .navbar a:hover {
+    color: var(--kod-purple);
+    opacity: 1;
+    text-decoration: underline;
+  }
